@@ -1,6 +1,16 @@
 require 'pry'
 
 class PatternGenerator
+  def generate(value, seq)
+    converted = seq.chars.map do |letter|
+      if letter == "."
+        letter = "A"
+      else
+        letter = "0"
+      end
+    end.join('')
+  end
+
   def verify(seq, code)
     aggregated = seq.chars.zip(code.chars)
     return false if !determine_mismatch(aggregated)

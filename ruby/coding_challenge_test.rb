@@ -33,4 +33,12 @@ class ObjectTest < Minitest::Test
   def test_it_generates_a_sequence_for_a_single_letter
     assert_equal "A", pg.generate(0, ".")
   end
+
+  def test_it_generates_a_sequence_for_a_single_number
+    assert_equal "0", pg.generate(0, "#")
+  end
+
+  def test_it_generates_a_sequence_for_numbers_and_letters
+    assert_equal "A0A", pg.generate(0, ".#.")
+  end
 end
