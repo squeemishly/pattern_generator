@@ -2,12 +2,11 @@ require 'pry'
 
 class PatternGenerator
   def total_available(pattern)
-    total = 1
-    pattern.chars.each do |value|
-      total = total * 10 if value == "#"
-      total = total * 26 if value == "."
+    pattern.chars.reduce(1) do |total, value|
+      if value == "#" then total = total * 10
+      elsif value == "." then total = total * 26
+      end
     end
-    total
   end
 
   def generate(value, seq)
