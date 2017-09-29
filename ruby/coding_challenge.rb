@@ -2,15 +2,33 @@ require 'pry'
 
 class PatternGenerator
   def generate(value, seq)
-    converted = seq.chars.map do |letter|
+    converted = []
+    step = value
+    seq.chars.reverse.each_with_index do |letter, index|
       if letter == "."
         letter = "A"
-        (letter.ord + value).chr
+        if step > 26
+          remaining = step % 26
+          letter = (letter.ord + remaining).chr
+          step = remaining
+        else
+          letter = (letter.ord + step).chr
+          step = 0
+        end
       else
         letter = "0"
-        (letter.to_i + value).to_s
+        if step > 10
+          remaining = step % 10
+          letter = (letter.to_i + remaining).to_s
+          step = remaining
+        else
+          letter = (letter.to_i + step).to_s
+          step = 0
+        end
       end
-    end.join('')
+      converted << letter
+    end
+    converted.reverse.join('')
   end
 
   def verify(seq, code)

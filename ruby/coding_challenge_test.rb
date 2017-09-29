@@ -47,7 +47,26 @@ class ObjectTest < Minitest::Test
   end
 
   def test_it_generates_a_sequence_for_a_later_generation_of_a_single_letter
+    assert_equal "Z", pg.generate(26, ".")
+  end
+
+  def test_it_generates_a_sequence_for_a_later_generation_of_a_single_letter
     assert_equal "2", pg.generate(2, "#")
   end
 
+  def test_it_generates_a_sequence_for_a_later_generation_of_a_group_of_letters
+    assert_equal "A2", pg.generate(2, ".#")
+  end
+
+  def test_it_generates_a_sequence_for_a_later_generation_of_a_group_of_letters
+    assert_equal "A0C", pg.generate(2, ".#.")
+  end
+
+  def test_it_rolls_up_the_line_when_the_value_increases
+    assert_equal "A1B", pg.generate(27, ".#.")
+  end
+
+  def test_it_rolls_up_the_line_when_the_value_increases
+    assert_equal "A0H7", pg.generate(27, ".#.#")
+  end
 end
