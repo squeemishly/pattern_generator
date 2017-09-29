@@ -29,4 +29,8 @@ class ObjectTest < Minitest::Test
   def test_it_refutes_a_more_complicated_pattern
     assert_equal false, pg.verify("ABB", ".#.")
   end
+
+  def test_it_generates_a_sequence_for_a_single_letter
+    assert_equal "A", pg.generate(0, ".")
+  end
 end
