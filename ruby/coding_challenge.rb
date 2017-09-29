@@ -5,8 +5,10 @@ class PatternGenerator
     converted = seq.chars.map do |letter|
       if letter == "."
         letter = "A"
+        (letter.ord + value).chr
       else
         letter = "0"
+        (letter.to_i + value).to_s
       end
     end.join('')
   end
