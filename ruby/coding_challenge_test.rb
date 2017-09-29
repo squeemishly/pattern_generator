@@ -69,4 +69,16 @@ class ObjectTest < Minitest::Test
   def test_it_rolls_up_the_line_when_the_value_increases
     assert_equal "A0C7", pg.generate(27, ".#.#")
   end
+
+  def test_it_can_find_how_many_possible_patterns_there_are_for_one_letter
+    assert_equal 26, pg.total_available(".")
+  end
+
+  def test_it_can_find_how_many_possible_patterns_there_are_for_one_number
+    assert_equal 10, pg.total_available("#")
+  end
+
+  def test_it_can_find_how_many_possible_patterns_there_are_for_a_longer_pattern
+    assert_equal 6760, pg.total_available(".#.")
+  end
 end

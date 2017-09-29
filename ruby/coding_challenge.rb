@@ -1,6 +1,15 @@
 require 'pry'
 
 class PatternGenerator
+  def total_available(pattern)
+    total = 1
+    pattern.chars.each do |value|
+      total = total * 10 if value == "#"
+      total = total * 26 if value == "."
+    end
+    total
+  end
+
   def generate(value, seq)
     converted = []
     step = value
