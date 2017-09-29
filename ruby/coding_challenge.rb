@@ -18,9 +18,8 @@ class PatternGenerator
       else
         letter = "0"
         if step > 10
-          remaining = step % 10
-          letter = (letter.to_i + remaining).to_s
-          step = remaining
+          letter = (letter.to_i + (step % 10)).to_s
+          step = (step / 10).floor
         else
           letter = (letter.to_i + step).to_s
           step = 0

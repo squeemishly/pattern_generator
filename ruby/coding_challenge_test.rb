@@ -67,6 +67,6 @@ class ObjectTest < Minitest::Test
   end
 
   def test_it_rolls_up_the_line_when_the_value_increases
-    assert_equal "A0H7", pg.generate(27, ".#.#")
+    assert_equal "A0C7", pg.generate(27, ".#.#")
   end
 end
