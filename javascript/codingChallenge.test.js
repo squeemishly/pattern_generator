@@ -1,8 +1,9 @@
 const assert = require('chai').assert;
-const Object = require('./codingChallenge');
+const PatternGenerator = require('./codingChallenge');
 
-describe('Object()', () => {
-  it('', () => {
-    
+describe('PatternGenerator', () => {
+  it('verifys a single letter', () => {
+    pg = new PatternGenerator
+    assert.equal("A", pg.verify("."))
   });
 });

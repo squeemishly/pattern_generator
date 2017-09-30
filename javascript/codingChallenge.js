@@ -1,9 +1,9 @@
-class Object {
+class PatternGenerator {
   constructor() {
 
   }
 
-  
+
 }
 
-module.exports = Object;
+module.exports = PatternGenerator;
