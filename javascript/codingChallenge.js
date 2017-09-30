@@ -14,14 +14,18 @@ class PatternGenerator {
     return correct
   }
 
-  total_available(pattern) {
+  totalAvailable(pattern) {
     return pattern.split('').reduce( (acc, curr) => {
-      if (curr === "#") {
-        return acc *= 10
-      } else if (curr === ".") {
-        return acc *= 26
-      }
+      return this.availabilityAccumulator(acc, curr)
     }, 1)
+  }
+
+  availabilityAccumulator(acc, curr) {
+    if (curr === "#") {
+      return acc *= 10
+    } else if (curr === ".") {
+      return acc *= 26
+    }
   }
 
   generate(value, pattern) {
