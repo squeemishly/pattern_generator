@@ -14,11 +14,13 @@ class PatternGenerator {
   }
 
   generate(seq, pattern) {
-    if (pattern === ".") {
-      return "A"
-    } else if (pattern === "#") {
-      return "0"
-    }
+    return pattern.split('').reduce( (acc, curr) => {
+      if (curr === ".") {
+        return acc = acc + "A"
+      } else if (curr === "#") {
+        return acc = acc + "0"
+      }
+    }, "")
   }
 }
 
