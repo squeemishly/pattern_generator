@@ -15,7 +15,11 @@ class PatternGenerator {
   }
 
   total_available(pattern) {
-    return 26
+    if (pattern === "#") {
+      return 10
+    } else if (pattern === ".") {
+      return 26
+    }
   }
 
   generate(value, pattern) {
