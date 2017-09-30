@@ -18,7 +18,7 @@ class PatternGenerator {
     let step = value
     return pattern.split('').reduce( (acc, curr) => {
       if (curr === ".") {
-        return acc + "A"
+        return acc + String.fromCharCode(65 + step)
       } else if (curr === "#") {
         return acc + (0 + step).toString()
       }
