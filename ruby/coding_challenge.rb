@@ -3,8 +3,8 @@ require 'pry'
 class PatternGenerator
   def total_available(pattern)
     pattern.chars.reduce(1) do |total, value|
-      if value == "#" then total = total * 10
-      elsif value == "." then total = total * 26
+      if value == "#" then total *= 10
+      elsif value == "." then total *= 26
       end
     end
   end
@@ -15,14 +15,13 @@ class PatternGenerator
       if char == "."
         letter = "A"
         if step > 26
-          remaining = step % 26
-          letter = (letter.ord + remaining).chr
-          step = remaining
+          step = step % 26
+          letter = (letter.ord + step).chr
         else
           letter = (letter.ord + step).chr
           step = 0
         end
-      else
+      elsif char == "#"
         letter = 0
         if step > 10
           letter = (letter + (step % 10)).to_s
