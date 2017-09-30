@@ -12,6 +12,14 @@ class PatternGenerator {
       return acc + "0"
     }
   }
+
+  generate(seq, pattern) {
+    if (pattern === ".") {
+      return "A"
+    } else if (pattern === "#") {
+      return "0"
+    }
+  }
 }
 
 module.exports = PatternGenerator;
