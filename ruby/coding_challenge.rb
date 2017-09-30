@@ -10,10 +10,9 @@ class PatternGenerator
   end
 
   def generate(value, seq)
-    converted = []
     step = value
-    seq.chars.reverse.each_with_index do |letter, index|
-      if letter == "."
+    seq.chars.reverse.reduce('') do |ret, char|
+      if char == "."
         letter = "A"
         if step > 26
           remaining = step % 26
@@ -24,18 +23,17 @@ class PatternGenerator
           step = 0
         end
       else
-        letter = "0"
+        letter = 0
         if step > 10
-          letter = (letter.to_i + (step % 10)).to_s
+          letter = (letter + (step % 10)).to_s
           step = (step / 10).floor
         else
-          letter = (letter.to_i + step).to_s
+          letter = (letter + step).to_s
           step = 0
         end
       end
-      converted << letter
-    end
-    converted.reverse.join('')
+      ret += letter
+    end.reverse
   end
 
   def verify(seq, code)
