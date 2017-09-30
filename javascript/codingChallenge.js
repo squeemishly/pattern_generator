@@ -1,11 +1,21 @@
 class PatternGenerator {
-  verify(pattern) {
+  verify(ret, pattern) {
+    if (pattern === "." && ret === "A") {
+      return true
+    } else if (pattern === "#" && ret === "0") {
+      return true
+    } else {
+      return false
+    }
+  }
+
+  generate(value, pattern) {
     return pattern.split('').reduce( (acc, curr) => {
-      return this.test_values(curr, acc)
+      return this.find_values(curr, acc)
     }, '')
   }
 
-  test_values(curr, acc) {
+  find_values(curr, acc) {
     if (curr === ".") {
       return acc + "A"
     } else if (curr === "#") {
@@ -13,15 +23,6 @@ class PatternGenerator {
     }
   }
 
-  generate(seq, pattern) {
-    return pattern.split('').reduce( (acc, curr) => {
-      if (curr === ".") {
-        return acc = acc + "A"
-      } else if (curr === "#") {
-        return acc = acc + "0"
-      }
-    }, "")
-  }
 }
 
 module.exports = PatternGenerator;

@@ -7,20 +7,24 @@ describe('PatternGenerator', () => {
   })
 
   it('verifys a single letter', () => {
-    assert.equal("A", pg.verify("."))
+    assert(pg.verify("A", "."))
   })
 
   it('verifys a single number', () => {
-    assert.equal("0", pg.verify("#"))
+    assert(pg.verify("0", "#"))
+  })
+
+  it('refutes a bad pattern', () => {
+    assert.isFalse(pg.verify("0", "."))
   })
 
   it('verifys a letter and a number', () => {
-    assert.equal("A0", pg.verify(".#"))
+    assert(pg.verify("A0", ".#"))
   })
 
-  it('verifys many letters and numbers', () => {
-    assert.equal("A0A0", pg.verify(".#.#"))
-  })
+  // it('verifys many letters and numbers', () => {
+  //   assert.equal("A0A0", pg.verify(".#.#"))
+  // })
 
   it('can generate values for a single letter pattern', () => {
     assert.equal("A", pg.generate(0, "."))
@@ -32,5 +36,9 @@ describe('PatternGenerator', () => {
 
   it('can generate values for a letter & a number pattern', () => {
     assert.equal("A0", pg.generate(0, ".#"))
+  })
+
+  it('can generate values for multiple letters & numbers pattern', () => {
+    assert.equal("A0A0", pg.generate(0, ".#.#"))
   })
 })
