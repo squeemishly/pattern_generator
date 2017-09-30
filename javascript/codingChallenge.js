@@ -15,11 +15,13 @@ class PatternGenerator {
   }
 
   total_available(pattern) {
-    if (pattern === "#") {
-      return 10
-    } else if (pattern === ".") {
-      return 26
-    }
+    return pattern.split('').reduce( (acc, curr) => {
+      if (curr === "#") {
+        return acc *= 10
+      } else if (curr === ".") {
+        return acc *= 26
+      }
+    }, 1)
   }
 
   generate(value, pattern) {

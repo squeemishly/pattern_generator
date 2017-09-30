@@ -77,4 +77,8 @@ describe('PatternGenerator', () => {
   it('can determine how many patterns exist for a single number', () => {
     assert.equal(10, pg.total_available("#"))
   })
+
+  it('can determine how many patterns exist for a letter & a number', () => {
+    assert.equal(260, pg.total_available(".#"))
+  })
 })
