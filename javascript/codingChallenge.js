@@ -15,18 +15,24 @@ class PatternGenerator {
   }
 
   generate(value, pattern) {
+    let step = value
     return pattern.split('').reduce( (acc, curr) => {
-      return this.find_values(curr, acc)
+      if (curr === ".") {
+        return acc + "A"
+      } else if (curr === "#") {
+        return acc + (0 + step).toString()
+      }
+      // return this.find_values(curr, acc)
     }, '')
   }
 
-  find_values(curr, acc) {
-    if (curr === ".") {
-      return acc + "A"
-    } else if (curr === "#") {
-      return acc + "0"
-    }
-  }
+  // find_values(curr, acc) {
+  //   if (curr === ".") {
+  //     return acc + "A"
+  //   } else if (curr === "#") {
+  //     return acc + "0"
+  //   }
+  // }
 
 }
 
