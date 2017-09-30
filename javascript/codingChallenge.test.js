@@ -17,4 +17,8 @@ describe('PatternGenerator', () => {
   it('verifys a letter and a number', () => {
     assert.equal("A0", pg.verify(".#"))
   })
+
+  it('verifys many letters and numbers', () => {
+    assert.equal("A0A0", pg.verify(".#.#"))
+  })
 })
