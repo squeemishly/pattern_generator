@@ -53,4 +53,8 @@ describe('PatternGenerator', () => {
   it('can generate a later value for a single number', () => {
     assert.equal("D", pg.generate(3, "."))
   })
+
+  it('can generate a later value for a single number', () => {
+    assert.equal("A3", pg.generate(3, ".#"))
+  })
 })

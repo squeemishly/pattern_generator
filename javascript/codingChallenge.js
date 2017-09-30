@@ -16,14 +16,19 @@ class PatternGenerator {
 
   generate(value, pattern) {
     let step = value
-    return pattern.split('').reduce( (acc, curr) => {
+    const result = pattern.split('').reverse().reduce( (acc, curr) => {
       if (curr === ".") {
-        return acc + String.fromCharCode(65 + step)
+        const letter = acc + String.fromCharCode(65 + step)
+        step = 0
+        return letter
       } else if (curr === "#") {
-        return acc + (0 + step).toString()
+        const number = acc + (0 + step).toString()
+        step = 0
+        return number
       }
       // return this.find_values(curr, acc)
-    }, '')
+    }, [])
+    return result.split('').reverse().join('')
   }
 
   // find_values(curr, acc) {
