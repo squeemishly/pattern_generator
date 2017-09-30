@@ -69,4 +69,8 @@ describe('PatternGenerator', () => {
   it('can generate a much later value for a string ending in a number', () => {
     assert.equal("A0A1B", pg.generate(27, ".#.#."))
   })
+
+  it('can determine how many patterns exist for a single letter', () => {
+    assert.equal(26, pg.total_available("."))
+  })
 })

@@ -14,13 +14,17 @@ class PatternGenerator {
     return correct
   }
 
+  total_available(pattern) {
+    return 26
+  }
+
   generate(value, pattern) {
     let step = value
     const result = pattern.split('').reverse().reduce( (acc, curr) => {
       if (curr === ".") {
         if (step > 26) {
-          const letter = acc + String.fromCharCode(65 + (step % 26))
           step = step % 26
+          const letter = acc + String.fromCharCode(65 + step)
           return letter
         } else {
           const letter = acc + String.fromCharCode(65 + step)
@@ -38,19 +42,9 @@ class PatternGenerator {
           return number
         }
       }
-      // return this.find_values(curr, acc)
     }, [])
     return result.split('').reverse().join('')
   }
-
-  // find_values(curr, acc) {
-  //   if (curr === ".") {
-  //     return acc + "A"
-  //   } else if (curr === "#") {
-  //     return acc + "0"
-  //   }
-  // }
-
 }
 
 module.exports = PatternGenerator;
