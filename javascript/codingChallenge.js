@@ -22,9 +22,15 @@ class PatternGenerator {
         step = 0
         return letter
       } else if (curr === "#") {
-        const number = acc + (0 + step).toString()
-        step = 0
-        return number
+        if (step > 10) {
+          const number = acc + (0 + (step%10))
+          step = Math.floor(step/10)
+          return number
+        } else {
+          const number = acc + (0 + step).toString()
+          step = 0
+          return number
+        }
       }
       // return this.find_values(curr, acc)
     }, [])

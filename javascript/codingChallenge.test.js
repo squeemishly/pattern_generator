@@ -50,11 +50,19 @@ describe('PatternGenerator', () => {
     assert.equal("3", pg.generate(3, "#"))
   })
 
-  it('can generate a later value for a single number', () => {
+  it('can generate a later value for a single letter', () => {
     assert.equal("D", pg.generate(3, "."))
   })
 
-  it('can generate a later value for a single number', () => {
+  it('can generate a later value for a letter and a number', () => {
     assert.equal("A3", pg.generate(3, ".#"))
+  })
+
+  it('can generate a later value for a longer string', () => {
+    assert.equal("A0A0A3", pg.generate(3, ".#.#.#"))
+  })
+
+  it('can generate a much later value for a string ending in a number', () => {
+    assert.equal("A0C7", pg.generate(27, ".#.#"))
   })
 })
