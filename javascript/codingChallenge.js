@@ -1,9 +1,7 @@
 class PatternGenerator {
-  constructor() {
-
+  verify(pattern) {
+    return "A"
   }
-
-
 }
 
 module.exports = PatternGenerator;
