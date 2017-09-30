@@ -18,9 +18,15 @@ class PatternGenerator {
     let step = value
     const result = pattern.split('').reverse().reduce( (acc, curr) => {
       if (curr === ".") {
-        const letter = acc + String.fromCharCode(65 + step)
-        step = 0
-        return letter
+        if (step > 26) {
+          const letter = acc + String.fromCharCode(65 + (step % 26))
+          step = step % 26
+          return letter
+        } else {
+          const letter = acc + String.fromCharCode(65 + step)
+          step = 0
+          return letter
+        }
       } else if (curr === "#") {
         if (step > 10) {
           const number = acc + (0 + (step%10))

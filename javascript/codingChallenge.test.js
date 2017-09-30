@@ -65,4 +65,8 @@ describe('PatternGenerator', () => {
   it('can generate a much later value for a string ending in a number', () => {
     assert.equal("A0C7", pg.generate(27, ".#.#"))
   })
+
+  it('can generate a much later value for a string ending in a number', () => {
+    assert.equal("A0A1B", pg.generate(27, ".#.#."))
+  })
 })
