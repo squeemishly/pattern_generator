@@ -26,6 +26,10 @@ describe('PatternGenerator', () => {
     assert(pg.verify("A0A0", ".#.#"))
   })
 
+  it('refuts a bad pattern with more than one value', () => {
+    assert.isFalse(pg.verify("A0AA", ".#.#"))
+  })
+
   it('can generate values for a single letter pattern', () => {
     assert.equal("A", pg.generate(0, "."))
   })
